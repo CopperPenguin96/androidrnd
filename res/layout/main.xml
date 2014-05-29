@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="vertical" >
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent"
+	android:layout_width="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
 
-</LinearLayout>
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Use this app to generate a random number. Quick and easy to use. No ads. Some features  are disabled in free version."
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:id="@+id/txtMe"
+			android:gravity="center"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Min Number"
+			android:layout_width="wrap_content"
+			android:gravity="center"
+			android:layout_gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="10"
+			android:layout_width="wrap_content"
+			android:gravity="center"
+			android:layout_gravity="center"
+			android:id="@+id/numMin"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Max Number"
+			android:layout_width="wrap_content"
+			android:gravity="center"
+			android:layout_gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="10"
+			android:layout_width="wrap_content"
+			android:gravity="center"
+			android:layout_gravity="center"
+			android:id="@+id/numMax"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Get Random Number"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="getRnd1"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Get Multiple Numbers"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="getMul"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Get Random Decimal"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="dec"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Get Multiple Decimals"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="getMD"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="License"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="license"/>
+
+	</LinearLayout>
+
+</ScrollView>
+
+
