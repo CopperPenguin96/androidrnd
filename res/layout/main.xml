@@ -77,7 +77,12 @@
 			android:layout_width="wrap_content"
 			android:layout_gravity="center"
 			android:onClick="getMD"/>
-
+		<Button
+			android:layout_height="wrap_content"
+			android:text="Get Random Letter"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"
+			android:onClick="getLetter"/>
 		<Button
 			android:layout_height="wrap_content"
 			android:text="License"

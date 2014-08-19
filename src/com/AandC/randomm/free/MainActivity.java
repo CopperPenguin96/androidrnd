@@ -361,4 +361,7 @@ public class MainActivity extends Activity
 		Intent licv = new Intent(this, Lic.class);
 		startActivity(licv);
 	}
+	public void getLetter(View v) {
+		full(v);
+	}
 }

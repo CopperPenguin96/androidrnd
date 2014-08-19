@@ -47,6 +47,7 @@ public class MainActivity extends Activity
 		TextView myTxt = (TextView) findViewById(R.id.txtMe);
 		myTxt.setText("Welcome! Thank You for purchasing the full version!");
     }
+	public Context Me = this;
 	AlertDialog alertDialog;
 	public static Random randomGenerator = new Random();
 	public static int prevRnd = 0;
@@ -505,5 +506,49 @@ public class MainActivity extends Activity
 	public void license(View v) {
 		Intent licv = new Intent(this, Lic.class);
 		startActivity(licv);
+	}
+	public void getLetter(View view) {
+		final EditText[] numberEdits = new EditText[] {
+			(EditText) findViewById(R.id.numMin),
+			(EditText) findViewById(R.id.numMax)
+		};
+		int[] nums = new int[2];
+		try {
+			int me = 0;
+			for (me = 0; me <= 1; me++) {
+				nums[me] = Integer.parseInt(numberEdits[me].getText().toString());
+			}
+			if (nums[0] > nums[1]) {
+				throw new NumberFormatException();
+			} else if (nums[0] == nums[1]) {
+				throw new NumberFormatException();
+			} else if (nums[0] > 26 || nums[1] > 26) {
+				throw new NumberFormatException();
+			}
+		} catch (NumberFormatException ex) {
+			AlertDialog x = new AlertDialog.Builder(this).create();
+			x.setTitle("Error!");
+			x.setMessage("Invalid Integer setup");
+			x.show();
+		} finally {
+			try {
+				String[] alphLetters = new String[] {
+					null, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+					"K","L","M", "N", "O", "P","Q","R","S","T","U","V",
+					"W","X","Y","Z"
+				};
+				getNext(nums[1], nums[0]);
+				int randomInt = rndNum;
+				AlertDialog v = new AlertDialog.Builder(this).create();
+				v.setTitle("I thought This Was a Number App!");
+				v.setMessage("Your random Letter is \"" + alphLetters[randomInt] + "\"");
+				v.show();
+			} catch (Exception ex) {
+				AlertDialog x = new AlertDialog.Builder(this).create();
+				x.setTitle(ex.toString());
+				x.setMessage(ex.toString());
+				x.show();
+			}
+		}
 	}
 }
