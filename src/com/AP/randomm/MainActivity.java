@@ -14,7 +14,7 @@
  limitations under the License.
 
  */
-package com.AandC.randomm;
+package com.AP.randomm;
 
 import android.app.*;
 import android.os.*;

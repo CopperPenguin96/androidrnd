@@ -6,7 +6,6 @@ import android.content.*;
 import android.app.*;
 public class Global
 {
-	public static minBox 
 	public static TextView lblHow;
 	public static EditText txtHow;
 	public static Button btnGo;
@@ -29,14 +28,14 @@ public class Global
 		btnGo.setY(GoOrigin);
 	}
 	public static int RandomInt() {
-		int max = 
 		Random rNd = new Random();
 		int rNdReturn = rNd.nextInt();
-		if (rNdReturn > max || rNdReturn < min) {
+		/*if (rNdReturn > max || rNdReturn < min) {
 			return RandomInt(min, max);
 		} else {
 			return rNdReturn;
-		}
+		}*/
+		return 0;
 	}
 	public static void DispMessage(String title, String msg, Context c) {
 		AlertDialog ad = new AlertDialog.Builder(c).create();
@@ -46,6 +45,6 @@ public class Global
 	}
 	
 	public static boolean ErrorChecking() {
-		
+		return false;
 	}
 }
