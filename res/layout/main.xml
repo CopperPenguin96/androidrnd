@@ -1,97 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="match_parent"
 	android:layout_width="match_parent">
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="wrap_content"
+		android:background="#79120C"
+		>
+		<LinearLayout
+			android:layout_height="match_parent"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:id="@+id/layout1LinearLayout1"
+			android:background="#79120C">
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Default"
+				android:layout_width="match_parent"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Decimal"
+				android:layout_width="match_parent"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Multiple Default"
+				android:layout_width="match_parent"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Multiple Decimal"
+				android:layout_width="match_parent"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Letter"
+				android:layout_width="match_parent"/>
+
+			<Button
+				android:layout_height="wrap_content"
+				style="?android:attr/buttonBarButtonStyle"
+				android:text="Multiple Letter"
+				android:layout_width="match_parent"/>
+
+		</LinearLayout>
+	</ScrollView>
 
 	<LinearLayout
 		android:layout_height="match_parent"
-		android:layout_width="match_parent"
-		android:orientation="vertical">
+		android:layout_width="wrap_content"
+		android:orientation="vertical"
+		android:layout_toRightOf="@id/layout1LinearLayout1"
+		android:layout_alignParentRight="true"
+		android:id="@+id/mainContentView"/>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:text="Use this app to generate a random number. Quick and easy to use. No ads. Some features  are disabled in free version."
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:id="@+id/txtMe"
-			android:gravity="center"/>
+</RelativeLayout>
 
-		<TextView
-			android:layout_height="wrap_content"
-			android:text="Min Number"
-			android:layout_width="wrap_content"
-			android:gravity="center"
-			android:layout_gravity="center"/>
 
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="number"
-			android:ems="10"
-			android:layout_width="wrap_content"
-			android:gravity="center"
-			android:layout_gravity="center"
-			android:id="@+id/numMin"/>
-
-		<TextView
-			android:layout_height="wrap_content"
-			android:text="Max Number"
-			android:layout_width="wrap_content"
-			android:gravity="center"
-			android:layout_gravity="center"/>
-
-		<EditText
-			android:layout_height="wrap_content"
-			android:inputType="number"
-			android:ems="10"
-			android:layout_width="wrap_content"
-			android:gravity="center"
-			android:layout_gravity="center"
-			android:id="@+id/numMax"/>
-
-		<Button
-			android:layout_height="wrap_content"
-			android:text="Get Random Number"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="getRnd1"/>
-
-		<Button
-			android:layout_height="wrap_content"
-			android:text="Get Multiple Numbers"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="getMul"/>
-
-		<Button
-			android:layout_height="wrap_content"
-			android:text="Get Random Decimal"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="dec"/>
-
-		<Button
-			android:layout_height="wrap_content"
-			android:text="Get Multiple Decimals"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="getMD"/>
-		<Button
-			android:layout_height="wrap_content"
-			android:text="Get Random Letter"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="getLetter"/>
-		<Button
-			android:layout_height="wrap_content"
-			android:text="License"
-			android:layout_width="wrap_content"
-			android:layout_gravity="center"
-			android:onClick="license"/>
-
-	</LinearLayout>
-
-</ScrollView>
 
 

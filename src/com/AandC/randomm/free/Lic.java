@@ -19,6 +19,7 @@ import android.app.*;
 import android.os.*;
 import android.webkit.*;
 import android.widget.*;
+import com.AandC.randomm.*;
 
 public class Lic extends Activity
 {
