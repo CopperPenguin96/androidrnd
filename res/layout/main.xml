@@ -3,56 +3,52 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="match_parent"
 	android:layout_width="match_parent">
-	<ScrollView
+
+	<LinearLayout
 		android:layout_height="match_parent"
 		android:layout_width="wrap_content"
-		android:background="#79120C"
-		>
-		<LinearLayout
-			android:layout_height="match_parent"
-			android:layout_width="wrap_content"
-			android:orientation="vertical"
-			android:id="@+id/layout1LinearLayout1"
-			android:background="#79120C">
+		android:orientation="vertical"
+		android:id="@+id/layout1LinearLayout1"
+		android:background="#79120C">
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Default"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Default"
+			android:onClick="setDefault"
+			android:layout_width="match_parent"/>
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Decimal"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Decimal"
+			android:layout_width="match_parent"/>
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Multiple Default"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Multiple Default"
+			android:layout_width="match_parent"/>
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Multiple Decimal"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Multiple Decimal"
+			android:layout_width="match_parent"/>
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Letter"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Letter"
+			android:layout_width="match_parent"/>
 
-			<Button
-				android:layout_height="wrap_content"
-				style="?android:attr/buttonBarButtonStyle"
-				android:text="Multiple Letter"
-				android:layout_width="match_parent"/>
+		<Button
+			android:layout_height="wrap_content"
+			style="?android:attr/buttonBarButtonStyle"
+			android:text="Multiple Letter"
+			android:layout_width="match_parent"/>
 
-		</LinearLayout>
-	</ScrollView>
+	</LinearLayout>
 
 	<LinearLayout
 		android:layout_height="match_parent"
@@ -60,10 +56,57 @@
 		android:orientation="vertical"
 		android:layout_toRightOf="@id/layout1LinearLayout1"
 		android:layout_alignParentRight="true"
-		android:id="@+id/mainContentView"/>
+		android:id="@+id/mainContentView">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Min. Number"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="10"
+			android:layout_width="match_parent"
+			android:id="@+id/txtMin"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Max. Number"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="10"
+			android:layout_width="match_parent"
+			android:id="@+id/txtMax"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="How Many?"
+			android:id="@+id/lblHow"
+			android:layout_width="wrap_content"
+			android:layout_gravity="center"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:ems="10"
+			android:id="@+id/txtHow"
+			android:layout_width="match_parent"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:text="GO!"
+			android:id="@+id/btnGo"
+			android:layout_width="wrap_content"
+			android:layout_gravity="right"/>
+
+	</LinearLayout>
 
 </RelativeLayout>
-
-
 
 

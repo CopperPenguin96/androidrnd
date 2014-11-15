@@ -1,6 +1,6 @@
 
 /*
- Copyright 2014- Present Date A & C Development
+ Copyright 2014- Present Date apotter96
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import android.webkit.*;
 import android.content.res.*;
 import android.text.*;
 import com.AandC.randomm.*;
-
+import Global;
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
@@ -44,6 +44,8 @@ public class MainActivity extends Activity
 		//Creates the view and inits with the app
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-		
+		Global.SetViews((TextView) findViewById(R.id.lblHow),
+						(EditText) findViewById(R.id.txtHow),
+						(Button) findViewById(R.id.btnGo), (LinearLayout) findViewById(R.id.mainContentView));
     }
 }
