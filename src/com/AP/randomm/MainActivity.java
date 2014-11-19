@@ -33,12 +33,14 @@ import android.webkit.*;
 import android.content.res.*;
 import android.text.*;
 import Global;
+import DigitType;
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
+		System.out.println(new Random().nextInt(2));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		Global.SetViews((TextView) findViewById(R.id.lblHow),
@@ -47,15 +49,20 @@ public class MainActivity extends Activity
 		Global.GoOrigin = Global.btnGo.getTop();
 		Global.HideCounts();
 		Global.btnGo.setY(-175);
+		Global.minMax = new TextView[] {
+			(TextView) findViewById(R.id.txtMin),
+			(TextView) findViewById(R.id.txtMax)
+		};
+		Global.main = this;
     }
 	
 	public void setDefault(View v) {
 		Global.HideCounts();
-		System.out.println(Global.btnGo.getBottom());
-		if (!Global.ErrorChecking()) {
-			Global.DispMessage("Random Number Generated!",
-				"Sources indicate that your random digitvis " + 
-				Global.RandomInt());
+		Global.digitType = DigitType.Default;
+	}
+	public void GetR(View v) {
+		if (Global.HasErrors()) {
+			return;
 		}
 	}
 	

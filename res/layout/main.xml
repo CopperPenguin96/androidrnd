@@ -102,6 +102,7 @@
 			android:layout_height="wrap_content"
 			android:text="GO!"
 			android:id="@+id/btnGo"
+			android:onClick="GetR"
 			android:layout_width="wrap_content"
 			android:layout_gravity="right"/>
 
