@@ -55,12 +55,64 @@ public class MainActivity extends Activity
 		Global.dType = DigitType.Default;
     }
 	
+	public void GetR(View v) {
+		boolean IsSafe = true;
+		if (!Global.IsHidden) {
+			try {
+				int f = Integer.parseInt(Global.txtHow.getText().toString());
+				if (f < 2) {
+					throw new NumberFormatException();
+				}
+			} catch (NumberFormatException e) {
+				Global.MsgBox("Wrong!","Your desired count is invalid", this);
+				IsSafe = false;
+			}
+		}
+		try {
+			int[] f = new int[] {
+				Global.getMin(), Global.getMax()
+			};
+			switch (Global.dType) {
+				case Letter:
+					if (f[1] < f[0] || f[0] < 1 || f[1] > 26) {
+						throw new NumberFormatException();
+					}
+					break;
+				default:
+					if (f[1] < f[0]) {
+						throw new NumberFormatException();
+					}
+					break;
+			}
+		} catch (NumberFormatException e) {
+			Global.MsgBox("Wrong!","Your desired min and max are just not right!", this);
+			IsSafe = false;
+		}
+		if (IsSafe) Global.dispDefault();
+	}
+	
 	public void setDefault(View v) {
 		Global.HideCounts();
 		Global.dType = DigitType.Default;
 	}
-	public void GetR(View v) {
-		Global.dispDefault();
+	public void setDecimal(View v) {
+		Global.HideCounts();
+		Global.dType = DigitType.Decimal;
 	}
-	
+	public void GetMul(View v) {
+		Global.ShowCounts();
+		Global.dType = DigitType.MultipleDefault;
+	}
+	public void GetMulD(View v) {
+		Global.ShowCounts();
+		Global.dType = DigitType.MultipleDecimal;
+	}
+	public void GetLet(View v) {
+		Global.HideCounts();
+		Global.dType = DigitType.Letter;
+	}
+	public void GetLetM(View v) {
+		Global.ShowCounts();
+		Global.dType = DigitType.MultipleLetter;
+	}
 }

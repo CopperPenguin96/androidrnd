@@ -22,30 +22,35 @@
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
 			android:text="Decimal"
+			android:onClick="setDecimal"
 			android:layout_width="match_parent"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
 			android:text="Multiple Default"
+			android:onClick="GetMul"
 			android:layout_width="match_parent"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
 			android:text="Multiple Decimal"
+			android:onClick="GetMulD"
 			android:layout_width="match_parent"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
 			android:text="Letter"
+			android:onClick="GetLet"
 			android:layout_width="match_parent"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			style="?android:attr/buttonBarButtonStyle"
 			android:text="Multiple Letter"
+			android:onClick="GetLetM"
 			android:layout_width="match_parent"/>
 
 	</LinearLayout>
