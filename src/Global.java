@@ -7,6 +7,7 @@ import android.app.*;
 import android.nfc.*;
 public class Global
 {
+	public static DigitType dType;
 	public static TextView[] minMax;
 	public static Context main;
 	public static TextView lblHow;
@@ -23,83 +24,48 @@ public class Global
 	public static void HideCounts() {
 		lblHow.setVisibility(4); //4 is hidden
 		txtHow.setVisibility(4); //0 is shown
-		btnGo.setY(lblHow.getTop());
 	}
 	public static void ShowCounts() {
 		lblHow.setVisibility(0); //4 is hidden
 		txtHow.setVisibility(0); //0 is shown
-		btnGo.setY(GoOrigin);
 	}
-	static int RandomInt() {
-		return new Random().nextInt();
+	
+	public static void DispMsg(String title, String msg) {
+		AlertDialog aD = new AlertDialog.Builder(main).create();
+		aD.setTitle(title);
+		aD.setMessage(msg);
+		aD.show();
 	}
-	public static void DispMessage(String title, String msg, Context c) {
-		AlertDialog ad = new AlertDialog.Builder(c).create();
-		ad.setTitle(title);
-		ad.setMessage(msg);
-		ad.show();
+	static int getMax() {
+		return Integer.parseInt(minMax[1].getText().toString());
 	}
-	final static String msg = "Numbers only please";
-	static int getMin() throws Exception {
-		try {
-			int num = Integer.parseInt(minMax[0].getText().toString()); 
-			return num;
-		} catch (Exception ex) {
-			throw new Exception(msg);
+	static int getMin() {
+		return Integer.parseInt(minMax[0].getText().toString());
+	}
+	private static Random randomGen = new Random();
+	static int prevNum;
+	static int rndNum;
+	static void setNext() {
+		rndNum = randomGen.nextInt(getMax());
+		prevNum = rndNum;
+		if (rndNum < getMin()) {
+			setNext();
 		}
 	}
-	static int getMax() throws Exception {
-		try {
-			int num = Integer.parseInt(minMax[1].getText().toString()); 
-			return num;
-		} catch (Exception ex) {
-			throw new Exception(msg);
-		}
-	}
-	public static DigitType digitType;
-	static int[] Digits;
-	public static boolean HasErrors() {
-		try
-		{
-			if (getMax() < getMin())
-			{
-				throw new InvalidResponseException("Max cannot " +
-					"be less than min");
+	static boolean[] HasRan = new boolean[6];
+	public static void dispDefault() {
+		if (HasRan[0]) {
+			while (rndNum < getMin() || rndNum == 0) {
+				setNext();
 			}
-		
-		} catch (Exception e) {
-			DispMessage("Invalid setup", e.getMessage(), main);
-			return true;
-		}
-		try
-		{
-			Digits = new int[] {
-				getMin(), getMin()
-			};
-		}
-		catch (Exception e) {
-			
-		}
-		return false;
-	}
-	static void ShowMessage() {
-		String title = null;
-		String message = null;
-		switch (digitType) {
-			case Default:
-				int desired = GetSet();
-				title = "Single Digit";
-				message = "Your random digit is " + GetSet();
-				break;
-		}
-		DispMessage(title, message, main);
-	}
-	static int GetSet() {
-		int des = RandomInt();
-		if (des < Digits[0] || des > Digits[1]) {
-			return GetSet();
 		} else {
-			return des;
+			while (rndNum == prevNum || rndNum < getMin() || rndNum == 0) {
+				setNext();
+			}
+			HasRan[0] = true;
 		}
+		prevNum = rndNum;
+		DispMsg("Random Number Received",
+				"Our sources indicate that your random number is " + rndNum);
 	}
 }

@@ -46,24 +46,21 @@ public class MainActivity extends Activity
 		Global.SetViews((TextView) findViewById(R.id.lblHow),
 			(EditText) findViewById(R.id.txtHow),
 			(Button) findViewById(R.id.btnGo), (LinearLayout) findViewById(R.id.mainContentView));
-		Global.GoOrigin = Global.btnGo.getTop();
 		Global.HideCounts();
-		Global.btnGo.setY(-175);
 		Global.minMax = new TextView[] {
 			(TextView) findViewById(R.id.txtMin),
 			(TextView) findViewById(R.id.txtMax)
 		};
 		Global.main = this;
+		Global.dType = DigitType.Default;
     }
 	
 	public void setDefault(View v) {
 		Global.HideCounts();
-		Global.digitType = DigitType.Default;
+		Global.dType = DigitType.Default;
 	}
 	public void GetR(View v) {
-		if (Global.HasErrors()) {
-			return;
-		}
+		Global.dispDefault();
 	}
 	
 }
