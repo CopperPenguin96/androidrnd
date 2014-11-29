@@ -35,17 +35,85 @@ import android.content.res.*;
 import android.text.*;
 import com.AP.randomm.*;
 import Global;
+import DigitType;
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
-		//Creates the view and inits with the app
+		System.out.println(new Random().nextInt(2));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 		Global.SetViews((TextView) findViewById(R.id.lblHow),
 						(EditText) findViewById(R.id.txtHow),
 						(Button) findViewById(R.id.btnGo), (LinearLayout) findViewById(R.id.mainContentView));
+		Global.HideCounts();
+		Global.minMax = new TextView[] {
+			(TextView) findViewById(R.id.txtMin),
+			(TextView) findViewById(R.id.txtMax)
+		};
+		Global.main = this;
+		Global.dType = DigitType.Default;
     }
+
+	public void GetR(View v) {
+		boolean IsSafe = true;
+		if (!Global.IsHidden) {
+			try {
+				int f = Integer.parseInt(Global.txtHow.getText().toString());
+				if (f < 2) {
+					throw new NumberFormatException();
+				}
+			} catch (NumberFormatException e) {
+				Global.MsgBox("Wrong!","Your desired count is invalid", this);
+				IsSafe = false;
+			}
+		}
+		try {
+			int[] f = new int[] {
+				Global.getMin(), Global.getMax()
+			};
+			switch (Global.dType) {
+				case Letter:
+					if (f[1] < f[0] || f[0] < 1 || f[1] > 26) {
+						throw new NumberFormatException();
+					}
+					break;
+				default:
+					if (f[1] < f[0]) {
+						throw new NumberFormatException();
+					}
+					break;
+			}
+		} catch (NumberFormatException e) {
+			Global.MsgBox("Wrong!","Your desired min and max are just not right!", this);
+			IsSafe = false;
+		}
+		if (IsSafe) Global.dispDefault();
+	}
+
+	public void setDefault(View v) {
+		Global.HideCounts();
+		Global.dType = DigitType.Default;
+	}
+	void Full() {
+		Global.MsgBox("Sorry T.T", "This feature is only available in the full version", this);
+	}
+	public void setDecimal(View v) {
+		Global.HideCounts();
+		Global.dType = DigitType.Decimal;
+	}
+	public void GetMul(View v) {
+		Full();
+	}
+	public void GetMulD(View v) {
+		Full();
+	}
+	public void GetLet(View v) {
+		Full();
+	}
+	public void GetLetM(View v) {
+		Full();
+	}
 }
