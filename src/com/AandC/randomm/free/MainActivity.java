@@ -15,7 +15,7 @@
  limitations under the License.
 
  */
-package com.AP.randomm.free;
+package com.AandC.randomm.free;
 
 import android.app.*;
 import android.os.*;
@@ -33,7 +33,7 @@ import android.nfc.*;
 import android.webkit.*;
 import android.content.res.*;
 import android.text.*;
-import com.AP.randomm.*;
+import com.AandC.randomm.*;
 import Global;
 import DigitType;
 public class MainActivity extends Activity
